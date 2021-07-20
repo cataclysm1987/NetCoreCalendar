@@ -33,6 +33,7 @@ namespace DotNetCoreCalendar
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IDAL, DAL>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
