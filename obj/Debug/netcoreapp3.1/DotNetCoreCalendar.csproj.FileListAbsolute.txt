@@ -823,3 +823,11 @@ C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Raz
 C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Event\Create.cshtml.g.cs
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Event\Delete.cshtml.g.cs
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Event\Details.cshtml.g.cs
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Event\Edit.cshtml.g.cs
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Event\Index.cshtml.g.cs
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Location\Create.cshtml.g.cs
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Location\Details.cshtml.g.cs
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Location\Index.cshtml.g.cs
