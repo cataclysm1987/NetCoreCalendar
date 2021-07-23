@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DotNetCoreCalendar.Data;
 using DotNetCoreCalendar.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DotNetCoreCalendar.Controllers
 {
+    [Authorize]
     public class LocationController : Controller
     {
         private readonly IDAL _dal;
+        private readonly UserManager<ApplicationUser> _usermanager;
 
-        public LocationController(IDAL idal)
+        public LocationController(IDAL idal, UserManager<ApplicationUser> usermanager)
         {
             _dal = idal;
+            _usermanager = usermanager;
         }
 
         // GET: Location

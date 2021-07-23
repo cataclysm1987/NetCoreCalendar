@@ -20,8 +20,9 @@ namespace DotNetCoreCalendar.Models
         public virtual Location Location { get; set; }
         public virtual ApplicationUser User { get; set; }
 
-        public Event(IFormCollection form, Location location)
+        public Event(IFormCollection form, Location location, ApplicationUser user)
         {
+            User = user;
             Name = form["Event.Name"].ToString();
             Description = form["Event.Description"].ToString();
             StartTime = DateTime.Parse(form["Event.StartTime"].ToString());
@@ -29,8 +30,9 @@ namespace DotNetCoreCalendar.Models
             Location = location;
         }
 
-        public void UpdateEvent(IFormCollection form, Location location)
+        public void UpdateEvent(IFormCollection form, Location location, ApplicationUser user)
         {
+            User = user;
             Name = form["Event.Name"].ToString();
             Description = form["Event.Description"].ToString();
             StartTime = DateTime.Parse(form["Event.StartTime"].ToString());

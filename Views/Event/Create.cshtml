@@ -12,30 +12,31 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" id="create-event">
+            @Html.HiddenFor(m => m.UserId)
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Event.Name" class="control-label"></label>
-                <input asp-for="Event.Name" class="form-control" />
+                <input asp-for="Event.Name" class="form-control required" />
                 <span asp-validation-for="Event.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.Description" class="control-label"></label>
-                <input asp-for="Event.Description" class="form-control" />
+                <input asp-for="Event.Description" class="form-control required" />
                 <span asp-validation-for="Event.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.StartTime" class="control-label"></label>
-                <input asp-for="Event.StartTime" class="form-control" />
+                <input asp-for="Event.StartTime" class="form-control required" />
                 <span asp-validation-for="Event.StartTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Event.EndTime" class="control-label"></label>
-                <input asp-for="Event.EndTime" class="form-control" />
+                <input asp-for="Event.EndTime" class="form-control required" />
                 <span asp-validation-for="Event.EndTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label>Location</label>
-                @Html.DropDownList("Location", Model.Location, "Select a Location", new { @class="form-control" })
+                @Html.DropDownList("Location", Model.Location, "Select a Location", new { @class= "form-control required" })
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -47,6 +48,12 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $("#create-event").validate();
+    });
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

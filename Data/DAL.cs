@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore; 
 
 namespace DotNetCoreCalendar.Data
 {
@@ -42,7 +43,8 @@ namespace DotNetCoreCalendar.Data
         public void CreateEvent(IFormCollection form)
         {
             var locname = form["Location"].ToString();
-            var newevent = new Event(form, db.Locations.FirstOrDefault(x => x.Name == locname));
+            var user = db.Users.FirstOrDefault(x => x.Id == form["UserId"].ToString());
+            var newevent = new Event(form, db.Locations.FirstOrDefault(x => x.Name == locname), user);
             db.Events.Add(newevent);
             db.SaveChanges();
         }
@@ -53,7 +55,8 @@ namespace DotNetCoreCalendar.Data
             var eventid = int.Parse(form["Event.Id"]);
             var myevent = db.Events.FirstOrDefault(x => x.Id == eventid);
             var location = db.Locations.FirstOrDefault(x => x.Name == locname);
-            myevent.UpdateEvent(form, location);
+            var user = db.Users.FirstOrDefault(x => x.Id == form["UserId"].ToString());
+            myevent.UpdateEvent(form, location, user);
             db.Entry(myevent).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             db.SaveChanges();
         }

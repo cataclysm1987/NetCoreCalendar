@@ -9,16 +9,22 @@ using DotNetCoreCalendar.Data;
 using DotNetCoreCalendar.Models;
 using DotNetCoreCalendar.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DotNetCoreCalendar.Controllers
 {
+    [Authorize]
     public class EventController : Controller
     {
         private readonly IDAL _dal;
+        private readonly UserManager<ApplicationUser> _usermanager;
 
-        public EventController(IDAL dal)
+        public EventController(IDAL dal, UserManager<ApplicationUser> usermanager)
         {
             _dal = dal;
+            _usermanager = usermanager;
         }
 
         // GET: Event
@@ -28,7 +34,7 @@ namespace DotNetCoreCalendar.Controllers
             {
                 ViewData["Alert"] = TempData["Alert"];
             }
-            return View(_dal.GetEvents());
+            return View(_dal.GetMyEvents(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
         // GET: Event/Details/5
@@ -49,9 +55,10 @@ namespace DotNetCoreCalendar.Controllers
         }
 
         // GET: Event/Create
+        
         public IActionResult Create()
         {
-            return View(new EventViewModel(_dal.GetLocations()));
+            return View(new EventViewModel(_dal.GetLocations(), User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
         // POST: Event/Create
@@ -59,6 +66,7 @@ namespace DotNetCoreCalendar.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> Create(EventViewModel vm, IFormCollection form)
         {
             try
@@ -74,6 +82,7 @@ namespace DotNetCoreCalendar.Controllers
         }
 
         // GET: Event/Edit/5
+        
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -86,7 +95,7 @@ namespace DotNetCoreCalendar.Controllers
             {
                 return NotFound();
             }
-            var vm = new EventViewModel(@event, _dal.GetLocations());
+            var vm = new EventViewModel(@event, _dal.GetLocations(), User.FindFirstValue(ClaimTypes.NameIdentifier));
             return View(vm);
         }
 
@@ -95,6 +104,7 @@ namespace DotNetCoreCalendar.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> Edit(int id, IFormCollection form)
         {
             try
@@ -106,7 +116,7 @@ namespace DotNetCoreCalendar.Controllers
             catch (Exception ex)
             {
                 ViewData["Alert"] = "An error occurred: " + ex.Message;
-                var vm = new EventViewModel(_dal.GetEvent(id), _dal.GetLocations());
+                var vm = new EventViewModel(_dal.GetEvent(id), _dal.GetLocations(), User.FindFirstValue(ClaimTypes.NameIdentifier));
                 return View(vm);
             }
         }
