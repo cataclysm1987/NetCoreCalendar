@@ -834,3 +834,11 @@ C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\Mic
 C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\conkline\source\repos\CalendarAppDotNetCore\obj\Debug\netcoreapp3.1\Razor\Views\Home\PageNotFound.cshtml.g.cs

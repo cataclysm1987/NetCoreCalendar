@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using DotNetCoreCalendar.Controllers.ActionFilters;
 
 namespace DotNetCoreCalendar.Controllers
 {
@@ -82,7 +83,7 @@ namespace DotNetCoreCalendar.Controllers
         }
 
         // GET: Event/Edit/5
-        
+        [UserAccessOnly]
         public IActionResult Edit(int? id)
         {
             if (id == null)

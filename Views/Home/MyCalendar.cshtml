@@ -2,7 +2,20 @@
     ViewData["Title"] = "My Calendar";
 }
 
-
+<style>
+    .popper,
+    .tooltip {
+        position: absolute;
+        z-index: 9999;
+        background: #FFC107;
+        color: black;
+        width: 150px;
+        border-radius: 3px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.5);
+        padding: 10px;
+        text-align: center;
+    }
+</style>
 
 <script>
 
@@ -17,6 +30,14 @@
                 center: 'title',
                 right: 'timeGridWeek,dayGridMonth,listMonth'
             },
+            eventDidMount: function (info) {
+                var tooltip = new Tooltip(info.el, {
+                    title: info.event.extendedProps.description,
+                    placement: 'top',
+                    trigger: 'hover',
+                    container: 'body'
+                });
+            }
         });
         calendar.render();
       });
